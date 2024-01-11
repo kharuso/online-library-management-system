@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="{% static '/library/css/publisher/dc.css' %}" />
+
+		<title>Home</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar" id="navbar">
+				<h2 class="title">FREE LEARN</h2>
+
+				<div class="add">
+					<a href="{% url 'uabook_form' %}" class="add-book"
+						>Publish Your Own Book</a
+					>
+				</div>
+				<div class="add">
+					<a href="{% url 'ubbook_form' %}" class="borrow-book"
+						>Borrow a Book</a
+					>
+				</div>
+				<div class="right-nav">
+					<input type="text" name="search-bar" class="search-bar" />
+					<button name="search-btn" class="search-btn">Search</button>
+					<a href="{% url 'logout' %}" class="logout-btn">Log out</a>
+				</div>
+			</nav>
+		</header>
+		<div class="container">
+			<div class="book-list">
+				{% if books %} {% for book in books %}
+				<div class="book-item">
+					{% if book.cover %}
+					<img
+						src="{{book.cover.url}}"
+						alt="{{book.title}}"
+						style="height: 120px; width: 100px" />
+					{% else %}
+					<span>No Cover</span>
+					{% endif %} {{book.title}} {% if book.pdf %}
+					<a href="{{book.pdf.url}}" download>Download</a>
+					{% else %}
+					<span>Download PDF</span>
+					{% endif %}
+				</div>
+				{% endfor %} {% endif %}
+			</div>
+		</div>
+
+		<script src="{% static '/library/js/scroll.js' %}"></script>
+	</body>
+</html>

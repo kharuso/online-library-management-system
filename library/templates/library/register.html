@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="{% static '/library/css/register.css' %}" />
+	</head>
+	<body>
+		<div style=" background: url({% static '/library/images/3.jpg' %});
+		background-position: center;
+   		background-size: cover;"/>
+			<div class="container">
+				<form action="{% url 'register' %}" method="POST" class="form">
+					{% csrf_token %}
+					<h1 class="title">Free Learn</h1>
+					<div class="input-flex">
+						<div class="left">
+							<input
+								type="text"
+								name="fname"
+								class="inpt"
+								autocomplete="off"
+								placeholder="First Name"
+								required />
+							<input
+								type="text"
+								name="lname"
+								class="inpt"
+								autocomplete="off"
+								placeholder="Last Name"
+								required />
+							<input
+								type="text"
+								name="username"
+								class="inpt"
+								autocomplete="off"
+								placeholder="Username"
+								required />
+						</div>
+						<div class="right">
+							<input
+								type="email"
+								name="email"
+								class="inpt"
+								autocomplete="off"
+								placeholder="Email"
+								required />
+							<input
+								type="password"
+								name="password1"
+								class="inpt"
+								autocomplete="off"
+								placeholder="Create Password"
+								required />
+							<input
+								type="password"
+								name="password2"
+								class="inpt"
+								autocomplete="off"
+								placeholder="Confirm Password"
+								required />
+						</div>
+					</div>
+					<button type="submit" class="form-btn">Register</button>
+					<a href="{% url 'home' %}" class="form-link"
+						>Already have an Account? Log In here</a
+					>
+					<div class="alert-box">
+						{% if messages %}
+						<div class="alert">
+							{% for message in messages %}
+
+							<a> {{ message }}</a>
+
+							{% endfor %}
+						</div>
+						{% endif %}
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

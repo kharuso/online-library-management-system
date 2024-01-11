@@ -1,0 +1,41 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="{% static '/library/css/publisher/borrow_book.css' %}" />
+
+		<title>Document</title>
+	</head>
+	<body>
+		<p class="title">Fill in information of Book</p>
+		<div class="container">
+			<form
+				action="{% url 'ubbook' %}"
+				method="POST"
+				enctype="multipart/form-data"
+				class="form">
+				{% csrf_token %}
+				<label class="lbl" for="title"
+					>Which Book do you want to Borrow</label
+				>
+				<input
+					type="text"
+					name="title"
+					class="inpt"
+					placeholder="Book Title"
+					required />
+				<label class="lbl" for="date"
+					>When are you returning the Book</label
+				>
+				<input type="date" name="date" class="inpt" required />
+
+				<button type="submit" class="borrow-now">Borrow</button>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="{% static '/library/css/publisher/add_book.css' %}" />
+
+		<title>Document</title>
+	</head>
+	<body>
+		<p class="title">Fill in information of Book</p>
+		<div class="container">
+			<form
+				action="{% url 'uabook' %}"
+				method="POST"
+				enctype="multipart/form-data"
+				class="form">
+				{% csrf_token %}
+				<input
+					type="text"
+					name="title"
+					class="inpt"
+					placeholder="Book Title"
+					required />
+				<input
+					type="text"
+					name="author"
+					class="inpt"
+					placeholder="Author"
+					required />
+				<input
+					type="text"
+					name="publisher"
+					class="inpt"
+					placeholder="Publisher"
+					required />
+				<input
+					type="text"
+					name="year"
+					class="inpt"
+					placeholder="publication Year"
+					required />
+				<input
+					type="text"
+					name="desc"
+					class="inpt"
+					placeholder="Book Description"
+					required />
+
+				<div class="chs-btn">
+					<label for="pdf">Choose PDF Book</label>
+					<input type="file" name="pdf" class="chs-inpt" required />
+				</div>
+				<div class="chs-btn">
+					<label for="cover">Choose Book Cover</label>
+					<input type="file" name="cover" class="chs-inpt" required />
+				</div>
+
+				<button type="submit" class="add-now">Publish</button>
+			</form>
+		</div>
+	</body>
+</html>

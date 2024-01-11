@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+.container {
+    position: relative;
+    width: 60%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin: 1rem auto;
+    background-color: rgb(10, 101, 219);
+}
+
+.title {
+    font-size: 1.6rem;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(10, 101, 219);
+    margin: 2rem;
+    text-transform: capitalize;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+
+
+}
+
+.inpt {
+    width: 300px;
+    height: 25px;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.562);
+    border: none;
+    color: #000;
+    padding: 17px;
+}
+
+.inpt:focus {
+    color: #000;
+    background: #fff;
+
+}
+
+.inpt:focus::placeholder {
+    color: #000;
+    background: #fff;
+}
+
+.chs-btn {
+    display: flex;
+    gap: .4rem;
+    align-items: center;
+    color: #fff;
+    margin: .4rem auto;
+}
+
+.add-now {
+    width: 100px;
+    height: 25px;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    background: #fff;
+
+}
+
+.add-now:hover {
+    background: rgba(255, 255, 255, 0.562);
+}
